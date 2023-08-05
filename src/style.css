@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* esto permite que el menu de navegacion se mantenga al momento de ir bajando  */
+.nav-fixed {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+}
+
+
+/* menu responsive  */
+
+#menu-toggle:checked~#menu {
+  display: block;
+}
+
+#menu {
+  display: none;
+}
+
+@media screen and (max-width: 700px) {
+  #menu-toggle:checked~#menu {
+    display: block;
+  }
+
+  .nav-fixed {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
+
+  .container {
+    padding: 0;
+  }
+
+  .md:hidden {
+    display: block !important;
+  }
+
+  #menu {
+    margin-top: 10px;
+  }
+
+  #menu li {
+    margin-bottom: 10px;
+  }
+}
+
+
+body.dark {
+  background-color: #1a202c;
+  color: #e2e8f0;
+}
+
+body.dark a {
+  color: #e2e8f0;
+
+  }
+
+/* animacion del perfil  */
+
+  @keyframes slideIn {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  #profile {
+    animation: slideIn 0.8s ease-out;
+  }
+
+  .background-image {
+    background-image: url('https://images.unsplash.com/photo-1522252234503-e356532cafd5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZGV2ZWxvcGVyfGVufDB8fDB8fHww&w=1000&q=80');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+  
+  .background-image::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Ajusta el valor alpha (0.5) para cambiar la opacidad */
+  }
+  
+  
+  
